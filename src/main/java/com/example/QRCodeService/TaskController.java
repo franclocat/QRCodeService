@@ -31,28 +31,8 @@ public class TaskController {
                 .body(errorMsg);
     }
 
-    /*public ResponseEntity<?> createQRCode(String contents, Integer size,String type, String correction) throws WriterException {
-        try {
-            QRCodeWriter writer = new QRCodeWriter();
-            Map<EncodeHintType, ?> hint = Map.of(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.valueOf(correction.toUpperCase()));
-
-            BitMatrix bitMatrix = writer.encode(contents, BarcodeFormat.QR_CODE, size, size, hint);
-            BufferedImage image = MatrixToImageWriter.toBufferedImage(bitMatrix);
-
-            return ResponseEntity
-                    .ok()
-                    .contentType(MediaType.valueOf("IMAGE_" + type.toUpperCase()))
-                    .body(image);
-
-        } catch (WriterException e) {
-            return ResponseEntity
-                    .internalServerError()
-                    .body("error while creating the code");
-        }
-    }*/
-
     @GetMapping("/api/health")
-    public ResponseEntity<?> getHealthOK() {
+    public ResponseEntity<String> getHealthOK() {
         return new ResponseEntity<>(HttpStatus.OK);
     } //works
 
